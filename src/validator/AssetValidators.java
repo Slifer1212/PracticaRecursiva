@@ -44,7 +44,7 @@ public final class AssetValidators {
         public void validate(Integer years) {
             if (years == null || years < 0) {
                 throw new IllegalArgumentException(
-                        "Los anos de vida util no pueden ser negativos. Recibidos: " + years);
+                        "Los anios de vida util no pueden ser negativos. Recibidos: " + years);
             }
         }
     }

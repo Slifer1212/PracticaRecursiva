@@ -81,7 +81,7 @@ public class ConsoleAssetInputReader implements AssetInputReader {
     @Override
     public int readYears() {
         return readValidInt(
-                "  Anos de vida util (t >= 0)    : ",
+                "  Anios de vida util (t >= 0)    : ",
                 yearsValidator);
     }
 

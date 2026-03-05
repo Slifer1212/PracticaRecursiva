@@ -74,7 +74,7 @@ public class ConsoleDepreciationReporter implements DepreciationReporter {
         System.out.println("\n  TABLA DE DEPRECIACION ANUAL");
         System.out.println("  " + TABLE_TOP);
         System.out.printf("  | %-4s | %-17s | %-17s | %-17s |%n",
-                "Ano", "Valor Inicial", "Depreciacion", "Valor Final");
+                "Anio", "Valor Inicial", "Depreciacion", "Valor Final");
         System.out.println("  " + TABLE_MID);
 
         for (DepreciationRecord record : report.getRecords()) {
