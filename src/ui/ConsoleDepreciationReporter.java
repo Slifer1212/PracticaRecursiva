@@ -16,6 +16,14 @@ public class ConsoleDepreciationReporter implements DepreciationReporter {
     private static final String TABLE_BOT =
             "+------+-------------------+-------------------+-------------------+";
 
+    /**
+     * Displays a complete depreciation report to the console, including the asset header,
+     * calculation parameters, detailed annual depreciation table, and summary information.
+     * The report is formatted for console output with appropriate sections and formatting.
+     *
+     * @param report the depreciation report containing asset information, depreciation records,
+     *               and calculation results to be displayed
+     */
     @Override
     public void displayReport(DepreciationReport report) {
         displayHeader(report.getAsset());
@@ -24,8 +32,14 @@ public class ConsoleDepreciationReporter implements DepreciationReporter {
         displaySummary(report);
     }
 
-    // ── Secciones del reporte ────────────────────────────────────────────────
 
+    /**
+     * Displays the header section of the depreciation report.
+     * Prints a formatted header containing the report title and the asset name,
+     * surrounded by separator lines for visual distinction.
+     *
+     * @param asset the Asset object whose name will be displayed in the header
+     */
     private void displayHeader(Asset asset) {
         System.out.println("\n" + SEPARATOR);
         System.out.println("   REPORTE DE DEPRECIACION - SALDO DECRECIENTE");
@@ -33,6 +47,9 @@ public class ConsoleDepreciationReporter implements DepreciationReporter {
         System.out.println(SEPARATOR);
     }
 
+    /**
+     *
+     */
     private void displayParameters(DepreciationReport report) {
         Asset asset = report.getAsset();
         System.out.println("\n  PARAMETROS");
@@ -44,6 +61,15 @@ public class ConsoleDepreciationReporter implements DepreciationReporter {
         System.out.printf("  Anos evaluados    (t): %d%n", report.getYears());
     }
 
+    /**
+     * Displays the annual depreciation table to the console.
+     * The table includes column headers and a row for each year showing the year number,
+     * opening value, depreciation amount, and closing value. All monetary values are
+     * formatted as currency using the currency helper method. The table is bordered
+     * with predefined table formatting constants for visual presentation.
+     *
+     * @param report the depreciation report containing the records to display in the table
+     */
     private void displayTable(DepreciationReport report) {
         System.out.println("\n  TABLA DE DEPRECIACION ANUAL");
         System.out.println("  " + TABLE_TOP);
@@ -62,6 +88,15 @@ public class ConsoleDepreciationReporter implements DepreciationReporter {
         System.out.println("  " + TABLE_BOT);
     }
 
+    /**
+     * Displays the summary section of the depreciation report to the console.
+     * The summary includes the final residual value of the asset after depreciation,
+     * the total amount depreciated over the calculation period, and the retention
+     * percentage representing the proportion of the original value that remains.
+     * All monetary values are formatted as currency.
+     *
+     * @param report the depreciation report containing the final value, total depreciated amount, and retention percentage to be displayed
+     */
     private void displaySummary(DepreciationReport report) {
         System.out.println("\n  RESUMEN");
         System.out.println("  -------");
@@ -71,9 +106,15 @@ public class ConsoleDepreciationReporter implements DepreciationReporter {
         System.out.println("\n" + SEPARATOR + "\n");
     }
 
-    // ── Utilidades de formato ────────────────────────────────────────────────
-
+    /**
+     * Formats a monetary amount as a currency string with dollar sign, thousands separators, and two decimal places.
+     * The formatted value is right-aligned in a 12-character wide field.
+     *
+     * @param amount the numeric value to be formatted as currency
+     * @return a formatted string representing the amount in currency format (e.g., "$  1,234.56")
+     */
     private String currency(double amount) {
         return String.format("$%,12.2f", amount);
     }
+
 }

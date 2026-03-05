@@ -3,9 +3,15 @@ package validator;
 
 public final class AssetValidators {
 
-    private AssetValidators() { /* Utility class – no instanciar */ }
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     * This class is designed to contain only static nested validator classes
+     * for asset-related validation operations.
+     *
+     * @throws UnsupportedOperationException implicitly if reflection is used to instantiate
+     */
+    private AssetValidators() {  }
 
-    // ── Validador de valor de compra ─────────────────────────────────────────
 
     public static class PurchaseValueValidator implements InputValidator<Double> {
         @Override
@@ -32,7 +38,6 @@ public final class AssetValidators {
         }
     }
 
-    // ── Validador de años ────────────────────────────────────────────────────
 
     public static class YearsValidator implements InputValidator<Integer> {
         @Override
