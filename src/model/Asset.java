@@ -30,8 +30,8 @@ public final class Asset {
      * @param builder the Builder instance containing the asset configuration values
      */
     private Asset(Builder builder) {
-        this.name             = builder.name;
-        this.purchaseValue    = builder.purchaseValue;
+        this.name = builder.name;
+        this.purchaseValue = builder.purchaseValue;
         this.depreciationRate = builder.depreciationRate;
     }
 
@@ -40,13 +40,19 @@ public final class Asset {
      *
      * @return the asset name
      */
-    public String getName()             { return name; }
+    public String getName() {
+        return name;
+    }
+
     /**
      * Returns the original purchase value of the asset.
      *
      * @return the purchase value of the asset as a double
      */
-    public double getPurchaseValue()    { return purchaseValue; }
+    public double getPurchaseValue() {
+        return purchaseValue;
+    }
+
     /**
      * Returns the depreciation rate of this asset.
      * The depreciation rate is expressed as a percentage value that determines
@@ -54,18 +60,33 @@ public final class Asset {
      *
      * @return the depreciation rate as a percentage
      */
-    public double getDepreciationRate() { return depreciationRate; }
+    public double getDepreciationRate() {
+        return depreciationRate;
+    }
 
     public static class Builder {
         private String name;
         private double purchaseValue;
         private double depreciationRate;
 
-        public Builder name(String name)                       { this.name = name;                       return this; }
-        public Builder purchaseValue(double purchaseValue)     { this.purchaseValue = purchaseValue;     return this; }
-        public Builder depreciationRate(double depreciationRate){ this.depreciationRate = depreciationRate; return this; }
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
 
-        public Asset build() { return new Asset(this); }
+        public Builder purchaseValue(double purchaseValue) {
+            this.purchaseValue = purchaseValue;
+            return this;
+        }
+
+        public Builder depreciationRate(double depreciationRate) {
+            this.depreciationRate = depreciationRate;
+            return this;
+        }
+
+        public Asset build() {
+            return new Asset(this);
+        }
     }
 
     /**

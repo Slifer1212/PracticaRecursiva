@@ -8,7 +8,7 @@ public final class DepreciationRecord {
      * This field represents the specific year in the asset's depreciation schedule
      * and is used to track when the depreciation values were calculated.
      */
-    private final int    year;
+    private final int year;
     /**
      * The value of the asset at the beginning of the depreciation year.
      * This represents the asset's book value before any depreciation is applied for the current year.
@@ -36,16 +36,16 @@ public final class DepreciationRecord {
      * This record captures the asset's value at the beginning of the year, the amount depreciated during
      * the year, and the resulting value at the end of the year.
      *
-     * @param year the year for which this depreciation record applies
-     * @param openingValue the value of the asset at the beginning of the year
+     * @param year               the year for which this depreciation record applies
+     * @param openingValue       the value of the asset at the beginning of the year
      * @param depreciationAmount the amount by which the asset depreciated during the year
-     * @param closingValue the value of the asset at the end of the year after depreciation
+     * @param closingValue       the value of the asset at the end of the year after depreciation
      */
     public DepreciationRecord(int year, double openingValue, double depreciationAmount, double closingValue) {
-        this.year               = year;
-        this.openingValue       = openingValue;
+        this.year = year;
+        this.openingValue = openingValue;
         this.depreciationAmount = depreciationAmount;
-        this.closingValue       = closingValue;
+        this.closingValue = closingValue;
     }
 
     /**
@@ -55,7 +55,10 @@ public final class DepreciationRecord {
      *
      * @return the year of this depreciation record
      */
-    public int    getYear()               { return year; }
+    public int getYear() {
+        return year;
+    }
+
     /**
      * Returns the opening value of the asset at the beginning of the depreciation year.
      * This represents the asset's value before depreciation is applied for this particular year.
@@ -64,7 +67,10 @@ public final class DepreciationRecord {
      *
      * @return the opening value of the asset for this depreciation year
      */
-    public double getOpeningValue()       { return openingValue; }
+    public double getOpeningValue() {
+        return openingValue;
+    }
+
     /**
      * Returns the depreciation amount for this record.
      * The depreciation amount represents the reduction in the asset's value
@@ -73,7 +79,10 @@ public final class DepreciationRecord {
      *
      * @return the depreciation amount as a double
      */
-    public double getDepreciationAmount() { return depreciationAmount; }
+    public double getDepreciationAmount() {
+        return depreciationAmount;
+    }
+
     /**
      * Returns the closing value of the asset at the end of the depreciation period for this record.
      * The closing value represents the asset's remaining value after the depreciation amount
@@ -81,5 +90,7 @@ public final class DepreciationRecord {
      *
      * @return the closing value of the asset in monetary units
      */
-    public double getClosingValue()       { return closingValue; }
+    public double getClosingValue() {
+        return closingValue;
+    }
 }

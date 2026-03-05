@@ -12,7 +12,7 @@ public interface DepreciationCalculator {
      * of this interface.
      *
      * @param asset the asset for which to calculate the residual value
-     * @param year the number of years elapsed since the asset's purchase, must be greater than or equal to 0
+     * @param year  the number of years elapsed since the asset's purchase, must be greater than or equal to 0
      * @return the residual value of the asset after the specified number of years
      */
     double calculateResidualValue(Asset asset, int year);

@@ -20,7 +20,7 @@ public class DecreasingBalanceCalculator implements DepreciationCalculator {
      * percentage each year.
      *
      * @param asset the asset for which to calculate the residual value
-     * @param year the number of years elapsed since purchase, must be greater than or equal to 0
+     * @param year  the number of years elapsed since purchase, must be greater than or equal to 0
      * @return the residual value of the asset at the end of the specified year
      */
     @Override
@@ -49,10 +49,10 @@ public class DecreasingBalanceCalculator implements DepreciationCalculator {
         List<DepreciationRecord> records = new ArrayList<>();
 
         for (int year = 0; year <= years; year++) {
-            double closing  = calculateResidualValue(asset, year);
-            double opening  = (year == 0) ? asset.getPurchaseValue()
-                                          : calculateResidualValue(asset, year - 1);
-            double deprAmt  = opening - closing;
+            double closing = calculateResidualValue(asset, year);
+            double opening = (year == 0) ? asset.getPurchaseValue()
+                    : calculateResidualValue(asset, year - 1);
+            double deprAmt = opening - closing;
             records.add(new DepreciationRecord(year, opening, deprAmt, closing));
         }
 

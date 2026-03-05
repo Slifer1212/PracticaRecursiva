@@ -14,25 +14,25 @@ public class ConsoleAssetInputReader implements AssetInputReader {
      * This scanner reads lines of text that are then parsed and validated
      * for asset information and calculation parameters.
      */
-    private final Scanner                    scanner;
+    private final Scanner scanner;
     /**
      * Validator for the purchase value of an asset. This validator ensures that the
      * purchase value entered by the user meets the required constraints before being
      * used to create an Asset instance.
      */
-    private final InputValidator<Double>     purchaseValueValidator;
+    private final InputValidator<Double> purchaseValueValidator;
     /**
      * Validator used to ensure that depreciation rate values entered by the user
      * meet the required business rules and constraints before being used in asset
      * depreciation calculations.
      */
-    private final InputValidator<Double>     rateValidator;
+    private final InputValidator<Double> rateValidator;
     /**
      * Validator used to verify that the number of years input for asset depreciation
      * calculation is valid according to business rules. Ensures the years value meets
      * the necessary constraints before being used in depreciation calculations.
      */
-    private final InputValidator<Integer>    yearsValidator;
+    private final InputValidator<Integer> yearsValidator;
 
     /**
      * Constructs a ConsoleAssetInputReader with the specified scanner for reading user input from the console.
@@ -41,14 +41,21 @@ public class ConsoleAssetInputReader implements AssetInputReader {
      * @param scanner the Scanner instance used to read input from the console
      */
     public ConsoleAssetInputReader(Scanner scanner) {
-        this.scanner                = scanner;
+        this.scanner = scanner;
         this.purchaseValueValidator = new AssetValidators.PurchaseValueValidator();
-        this.rateValidator          = new AssetValidators.DepreciationRateValidator();
-        this.yearsValidator         = new AssetValidators.YearsValidator();
+        this.rateValidator = new AssetValidators.DepreciationRateValidator();
+        this.yearsValidator = new AssetValidators.YearsValidator();
     }
 
     /**
+     * Reads and constructs an Asset object from console input.
+     * Prompts the user to enter the asset name, purchase value, and depreciation rate.
+     * The name is read as a trimmed string, while the purchase value and depreciation rate
+     * are validated using their respective validators to ensure data integrity.
+     * The method creates and returns an immutable Asset object using the Builder pattern
+     * with the collected and validated input values.
      *
+     * @return a newly created Asset object containing the validated input data
      */
     @Override
     public Asset readAsset() {
@@ -85,14 +92,12 @@ public class ConsoleAssetInputReader implements AssetInputReader {
                 yearsValidator);
     }
 
-    // ── Helpers privados ─────────────────────────────────────────────────────
-
     /**
      * Reads and validates a double value from user input.
      * Continuously prompts the user until a valid double value that passes validation is entered.
      * Handles invalid number formats and validation errors by displaying error messages and re-prompting.
      *
-     * @param prompt the message to display when prompting the user for input
+     * @param prompt    the message to display when prompting the user for input
      * @param validator the validator to apply to the parsed double value
      * @return the validated double value entered by the user
      */
@@ -112,7 +117,13 @@ public class ConsoleAssetInputReader implements AssetInputReader {
     }
 
     /**
+     * Reads and validates an integer value from user input.
+     * Continuously prompts the user until a valid integer value that passes validation is entered.
+     * Handles invalid number formats and validation errors by displaying error messages and re-prompting.
      *
+     * @param prompt the message to display when prompting the user for input
+     * @param validator the validator to apply to the parsed integer value
+     * @return the validated integer value entered by the user
      */
     private int readValidInt(String prompt, InputValidator<Integer> validator) {
         while (true) {

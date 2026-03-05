@@ -17,7 +17,7 @@ public class DepreciationApplication {
      * This component handles all input operations required by the depreciation application,
      * including reading asset information and the number of years for depreciation calculation.
      */
-    private final AssetInputReader      inputReader;
+    private final AssetInputReader inputReader;
     /**
      * Calculator responsible for computing depreciation values and generating depreciation reports.
      * This component performs the core business logic for asset depreciation calculations using
@@ -30,7 +30,7 @@ public class DepreciationApplication {
      * This reporter handles the presentation of the calculated depreciation data,
      * including yearly records and summary information.
      */
-    private final DepreciationReporter  reporter;
+    private final DepreciationReporter reporter;
 
     /**
      * Constructs a new DepreciationApplication with the specified dependencies.
@@ -38,22 +38,22 @@ public class DepreciationApplication {
      * calculate depreciation, and report the results.
      *
      * @param inputReader the reader responsible for obtaining asset information and evaluation period from the user
-     * @param calculator the calculator that performs depreciation computations and generates reports
-     * @param reporter the reporter that handles the presentation of depreciation results
+     * @param calculator  the calculator that performs depreciation computations and generates reports
+     * @param reporter    the reporter that handles the presentation of depreciation results
      */
     public DepreciationApplication(
-            AssetInputReader      inputReader,
+            AssetInputReader inputReader,
             DepreciationCalculator calculator,
-            DepreciationReporter  reporter) {
+            DepreciationReporter reporter) {
 
         this.inputReader = inputReader;
-        this.calculator  = calculator;
-        this.reporter    = reporter;
+        this.calculator = calculator;
+        this.reporter = reporter;
     }
 
     /**
      * Executes the main workflow of the depreciation application.
-     *
+     * <p>
      * This method orchestrates the complete depreciation calculation process by:
      * printing an application banner, reading asset information and time period from the user,
      * generating a depreciation report using the configured calculator, and displaying
@@ -65,7 +65,7 @@ public class DepreciationApplication {
         printBanner();
 
         Asset asset = inputReader.readAsset();
-        int   years = inputReader.readYears();
+        int years = inputReader.readYears();
 
         DepreciationReport report = calculator.generateReport(asset, years);
 
@@ -74,11 +74,11 @@ public class DepreciationApplication {
 
     /**
      * Prints the application banner and input prompt header to the console.
-     *
+     * <p>
      * Displays a formatted header with the title "CALCULO DE DEPRECIACION POR SALDO DECRECIENTE"
      * (Declining Balance Depreciation Calculation) surrounded by separator lines, followed by
      * a prompt requesting the user to enter asset data.
-     *
+     * <p>
      * This method is called at the beginning of the application run to provide visual context
      * and user instructions before requesting input.
      */

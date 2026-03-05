@@ -10,7 +10,8 @@ public final class AssetValidators {
      *
      * @throws UnsupportedOperationException implicitly if reflection is used to instantiate
      */
-    private AssetValidators() {  }
+    private AssetValidators() {
+    }
 
 
     public static class PurchaseValueValidator implements InputValidator<Double> {
@@ -25,7 +26,7 @@ public final class AssetValidators {
 
 
     public static class DepreciationRateValidator implements InputValidator<Double> {
-        private static final double MIN_RATE =  0.01;
+        private static final double MIN_RATE = 0.01;
         private static final double MAX_RATE = 99.99;
 
         @Override
